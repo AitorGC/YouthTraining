@@ -3,18 +3,14 @@
     <ion-title>
       Youth Training Login Page
     </ion-title>
+    <ion-buttons end>
+      <button ion-button color="primary" (click)="logout()">
+        <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Inserta tus datos para acceder a la intranet</h2>
-  <div class="list list-inset">
-    <label class="item item-input">
-      <input type="text" placeholder="Usuario" ng-model="data.username">
-    </label>
-    <label class="item item-input">
-      <input type="password" placeholder="Contraseña" ng-model="data.password">
-    </label>
-  </div>
-  <button class="button button-block button-calm" ng-click="login()">ENTRAR</button>
+  
 </ion-content>
