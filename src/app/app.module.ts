@@ -6,59 +6,54 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SignupPage } from '../pages/signup/signup';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { DashboardPage } from "../pages/dashboard/dashboard";
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
-import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
+
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceProvider } from '../providers/user-service/user-service';
-import { AuthService } from '../providers/auth-service/auth-service';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthProvider } from '../providers/auth/auth';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyBuufwaJCZXejeuXOJPp7sR7zwvht0X1zc",
-    authDomain: "prototipolnd.firebaseapp.com",
-    databaseURL: "https://prototipolnd.firebaseio.com",
-    storageBucket: "prototipolnd.appspot.com"
+    apiKey: "AIzaSyB-Gmu3qu-dJTnHC2yPozJyGFpwrpueSt0",
+    authDomain: "apirestfull-damtarde.firebaseapp.com",
+    databaseURL: "https://apirestfull-damtarde.firebaseio.com",
+    projectId: "apirestfull-damtarde",
+    storageBucket: "apirestfull-damtarde.appspot.com",
+    messagingSenderId: "866583495529"
 };
-
-const myFirebaseAuthConfig = {
-    provider: AuthProviders.Password,
-    method: AuthMethods.Password
-}
-
-firebase.initializeApp(firebaseConfig);
 
 @NgModule({
   declarations: [
       MyApp,
       HomePage,
-      DashboardPage,
-      LoginPage,
-      RegisterPage,
-      ResetpwdPage
+      SignupPage,
+      ResetPasswordPage,
+      DashboardPage
   ],
   imports: [
       BrowserModule,
       HttpClientModule,
       IonicModule.forRoot(MyApp),
-      AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+      AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
       MyApp,
       HomePage,
-      DashboardPage,
-      LoginPage,
-      RegisterPage,
-      ResetpwdPage
+      SignupPage,
+      ResetPasswordPage,
+      DashboardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
-    AuthService
+    AuthProvider,
+    AngularFireAuth
   ]
 })
 export class AppModule {}

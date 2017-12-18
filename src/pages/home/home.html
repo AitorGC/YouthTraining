@@ -1,16 +1,32 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Youth Training Login Page
+      <img alt="logo" height="60" src="../assets/imgs/logoHeader.png"> 
     </ion-title>
-    <ion-buttons end>
-      <button ion-button color="primary" (click)="logout()">
-        <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
+  <form [formGroup]="loginForm" novalidate>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="email">Correo Electrónico</ion-label>
+        <ion-input type="email" value="" formControlName="email"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-label stacked for="password">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-row>
+    <ion-row>
+      <button (click)="login()" ion-button block button-calm>ENTRAR</button>
+    </ion-row>
+    <!--ENLACE A PÁGINA DE REGISTRO-->
+    <ion-row>
+        <ion-label [navPush]="signupPage">Regístrate aquí</ion-label>
+        <ion-label [navPush]="resetPasswordPage">Restablecer contraseña</ion-label>
+    </ion-row>
+  </form>
 </ion-content>

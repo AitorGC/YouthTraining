@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the DashboardPage page.
@@ -17,7 +19,7 @@ import { UserServiceProvider } from '../../providers/user-service/user-service';
 export class DashboardPage {
     actividades: any;
 
-    constructor(public navCtrl: NavController, public servicio: UserServiceProvider) {
+    constructor(public navCtrl: NavController, public auth: AuthProvider, public servicio: UserServiceProvider) {
     }
 
     ionViewDidLoad() {
@@ -30,6 +32,11 @@ export class DashboardPage {
                 console.error(error);
             }
         )
+    }
+
+    logout(): void {
+        this.auth.logout();
+        this.navCtrl.push(HomePage);
     }
 
 }
