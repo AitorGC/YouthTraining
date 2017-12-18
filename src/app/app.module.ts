@@ -12,9 +12,13 @@ import { DashboardPage } from "../pages/dashboard/dashboard";
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { AuthProvider } from '../providers/auth/auth';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthProvider } from '../providers/auth/auth';
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
+import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyB-Gmu3qu-dJTnHC2yPozJyGFpwrpueSt0",
@@ -37,7 +41,8 @@ export const firebaseConfig = {
       BrowserModule,
       HttpClientModule,
       IonicModule.forRoot(MyApp),
-      AngularFireModule.initializeApp(firebaseConfig)
+      AngularFireModule.initializeApp(firebaseConfig),
+      AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -53,7 +58,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserServiceProvider,
     AuthProvider,
-    AngularFireAuth
+    AngularFireAuth,
+    FirebaseProvider
   ]
 })
 export class AppModule {}

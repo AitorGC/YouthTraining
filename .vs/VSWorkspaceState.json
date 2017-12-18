@@ -5,10 +5,9 @@
     "\\src\\app",
     "\\src\\pages",
     "\\src\\pages\\dashboard",
-    "\\src\\pages\\home",
     "\\src\\providers",
     "\\src\\providers\\user-service"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\providers\\user-service\\user-service.ts",
   "PreviewInSolutionExplorer": false
 }
