@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { UserServiceProvider } from '../../providers/user-service';
+import { IonicPage, NavController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { UserServiceProvider } from '../../providers/user-service/user-service';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the DashboardPage page.
@@ -15,21 +17,26 @@ import { UserServiceProvider } from '../../providers/user-service';
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-    ciclos: any;
+    actividades: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public servicio: UserServiceProvider) {
+    constructor(public navCtrl: NavController, public auth: AuthProvider, public servicio: UserServiceProvider) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad DashboardPage');
-        this.servicio.getUsers().subscribe(
+        this.servicio.getActividades().subscribe(
             (data) => {
-                this.ciclos = data;
+                this.actividades = data;
             },
             (error) => {
                 console.error(error);
             }
         )
+    }
+
+    logout(): void {
+        this.auth.logout();
+        this.navCtrl.push(HomePage);
     }
 
 }

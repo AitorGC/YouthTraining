@@ -6,29 +6,54 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SignupPage } from '../pages/signup/signup';
+import { ResetPasswordPage } from '../pages/reset-password/reset-password';
+import { DashboardPage } from "../pages/dashboard/dashboard";
+
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthProvider } from '../providers/auth/auth';
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyB-Gmu3qu-dJTnHC2yPozJyGFpwrpueSt0",
+    authDomain: "apirestfull-damtarde.firebaseapp.com",
+    databaseURL: "https://apirestfull-damtarde.firebaseio.com",
+    projectId: "apirestfull-damtarde",
+    storageBucket: "apirestfull-damtarde.appspot.com",
+    messagingSenderId: "866583495529"
+};
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+      MyApp,
+      HomePage,
+      SignupPage,
+      ResetPasswordPage,
+      DashboardPage
   ],
   imports: [
       BrowserModule,
       HttpClientModule,
-      IonicModule.forRoot(MyApp)
+      IonicModule.forRoot(MyApp),
+      AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+      MyApp,
+      HomePage,
+      SignupPage,
+      ResetPasswordPage,
+      DashboardPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+    AuthProvider,
+    AngularFireAuth
   ]
 })
 export class AppModule {}

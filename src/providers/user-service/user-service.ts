@@ -14,8 +14,7 @@ export class UserServiceProvider {
     console.log('Hello UserServiceProvider Provider');
   }
 
-  getUsers() {
-      return this.http.get("http://localhost:8080/Alumnado/webresources/ciclo");
+  getActividades() {
+      return this.http.get("http://192.168.1.43:8080/YouthTraining/webresources/actividad");
   }
-
 }
