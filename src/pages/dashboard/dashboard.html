@@ -23,12 +23,12 @@
       </ion-item>
     </ion-col>
     <ion-col>
-      <button ion-button (click)="addItem()">Añadir</button>
+      <button ion-button (click)="addItem()">Añadir actividad</button>
     </ion-col>
   </ion-row>
 
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of actividades | async">
+ <ion-list>
+    <ion-item-sliding *ngFor="let item of listaActividades | async">
       <ion-item>
         {{ item.$value }}
       </ion-item>
@@ -42,7 +42,7 @@
   <ion-list>
     <ion-item *ngFor="let actividad of actividades">
       <h2>{{actividad.nombre}}</h2>
-      <p>{{actividad.descripcion}}</p>
+      <!--<p>{{actividad.descripcion}}</p>-->
     </ion-item>
   </ion-list>
 
