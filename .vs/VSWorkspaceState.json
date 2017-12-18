@@ -5,10 +5,9 @@
     "\\src\\app",
     "\\src\\pages",
     "\\src\\pages\\dashboard",
-    "\\src\\pages\\home",
     "\\src\\providers",
-    "\\src\\providers\\user-service"
+    "\\src\\providers\\firebase"
   ],
-  "SelectedNode": "\\src\\app\\app.module.ts",
+  "SelectedNode": "\\src\\providers\\firebase\\firebase.ts",
   "PreviewInSolutionExplorer": false
 }

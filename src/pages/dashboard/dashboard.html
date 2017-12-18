@@ -15,6 +15,29 @@
       <div *ngIf="auth.currentUser">Bienvenida/o, {{auth.currentUser}}</div>
     </ion-item>
   </ion-row>
+  <!--LISTA RECOGIDA DEL JSON DESDE FIREBASE-->
+  <ion-row>
+    <ion-col col-9>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="newItem" placeholder="Nueva actividad"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="addItem()">Añadir</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of actividades | async">
+      <ion-item>
+        {{ item.$value }}
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="danger" icon-only (click)="removeItem(item.$key)"><ion-icon name="trash"></ion-icon></button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
   <!--LISTA RECOGIDA DEL JSON MEDIANTE PHP-->
   <ion-list>
     <ion-item *ngFor="let actividad of actividades">
