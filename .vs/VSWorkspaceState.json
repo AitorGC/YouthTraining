@@ -6,8 +6,9 @@
     "\\src\\pages",
     "\\src\\pages\\dashboard",
     "\\src\\providers",
+    "\\src\\providers\\firebase",
     "\\src\\providers\\user-service"
   ],
-  "SelectedNode": "\\src\\providers\\user-service\\user-service.ts",
+  "SelectedNode": "\\src\\providers\\user-service",
   "PreviewInSolutionExplorer": false
 }

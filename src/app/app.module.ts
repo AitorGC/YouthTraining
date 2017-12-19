@@ -17,8 +17,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
-import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyB-Gmu3qu-dJTnHC2yPozJyGFpwrpueSt0",
