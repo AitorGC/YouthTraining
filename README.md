@@ -1,1 +1,3 @@
-### :point_right: This starter repo has moved to the [ionic-team/starters](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/blank) repo! :point_left:
+### :point_right: Aplicación para la Asociación Juvenil, Cultural y Deportiva Youth Training :point_left:
+
+Se trata de un CRUD con una API REST hecha con WildFly & Maven que envía un PHP JSON y conecta con una base de datos MySQL para la gestión de las actividades y los usuarios que se inscriben a ellas. La lectura y la aplicación están programadas en Ionic3 con Angular. Para la autenticación de usuarios en la app se usa una conexión con el servicio Auth de Firebase. En próximas versiones se irán mejorando características de la GUI y de usabilidad en el CRUD para los usuarios y la finalidad de la gestión de la aplicación. 
