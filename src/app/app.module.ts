@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { DashboardPage } from "../pages/dashboard/dashboard";
+import { AnadirActividadPage } from "../pages/anadir-actividad/anadir-actividad";
 
 import { HttpClientModule } from '@angular/common/http';
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -34,7 +35,8 @@ export const firebaseConfig = {
       HomePage,
       SignupPage,
       ResetPasswordPage,
-      DashboardPage
+      DashboardPage,
+      AnadirActividadPage
   ],
   imports: [
       BrowserModule,
@@ -49,7 +51,8 @@ export const firebaseConfig = {
       HomePage,
       SignupPage,
       ResetPasswordPage,
-      DashboardPage
+      DashboardPage,
+      AnadirActividadPage
   ],
   providers: [
     StatusBar,

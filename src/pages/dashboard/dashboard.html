@@ -17,6 +17,29 @@
   </ion-row>
 
   <!--AQUÍ LA LISTA PARA MOSTRAR LAS ACTIVIDADES-->
+  <ion-list>
+    <ion-item *ngFor="let actividades of actividades">
+        <h2 ion-text color="primary">{{actividades.id}} - {{actividades.nombre}}</h2>
+        <p>Descripción: {{actividades.descripcion}}</p>
+        <p>Localizacion: {{actividades.localizacion}}</p>
+        <p>Fecha de inicio: {{actividades.fechaIni}}</p>
+        <p>Fecha de fin: {{actividades.fechaFin}}</p>
+        <p>Número de plazas: {{actividades.maxInscritos}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-item-divider color="light"></ion-item-divider>
+
+  <ion-row>
+    <button (click)="addActividad()" ion-button>Añadir actividad</button>
+  </ion-row>
+  <ion-row>
+    <ion-input type="number" [(ngModel)]="numero" placeholder="Código de la actividad"></ion-input>
+    <button (click)="deleteActividad()" ion-button color="danger">Borrar actividad</button>
+  </ion-row>
+  
+
+  <ion-item-divider color="light"></ion-item-divider>
 
   <!--BOTÓN DE CERRAR LA SESIÓN ACTIVA-->
   <ion-row>

@@ -1,0 +1,82 @@
+<!--
+  Generated template for the AnadirActividadPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <img alt="logo" height="60" src="../assets/imgs/logoHeader.png">
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-item>
+      <div *ngIf="auth.currentUser">Bienvenida/o, {{auth.currentUser}}</div>
+    </ion-item>
+  </ion-row>
+  <!--FORMULARIO PARA AÑADIR ACTIVIDAD NUEVA-->
+  <h2>Añadir Actividad</h2>
+  <form [formGroup]="formActividad" (ngSubmit)="saveActividad()" novalidate>
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('nombre').errors && formActividad.get('nombre').dirty">
+      <p *ngIf="formActividad.get('nombre').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Localización</ion-label>
+      <ion-input type="text" formControlName="localizacion"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('localizacion').errors && formActividad.get('localizacion').dirty">
+      <p *ngIf="formActividad.get('localizacion').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción</ion-label>
+      <ion-input type="text" formControlName="descripcion"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('descripcion').errors && formActividad.get('descripcion').dirty">
+      <p *ngIf="formActividad.get('descripcion').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <ion-item-divider color="light">Temporización</ion-item-divider>
+    <ion-item>
+      <ion-label>Fecha de inicio</ion-label>
+      <ion-input type="text" placeholder="aaaa-mm-dd" formControlName="fecha_ini"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('fecha_ini').errors && formActividad.get('fecha_ini').dirty">
+      <p *ngIf="formActividad.get('fecha_ini').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha de fin</ion-label>
+      <ion-input type="text" placeholder="aaaa-mm-dd" formControlName="fecha_fin"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('fecha_fin').errors && formActividad.get('fecha_fin').dirty">
+      <p *ngIf="formActividad.get('fecha_fin').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <ion-item>
+      <ion-label>Número de plazas</ion-label>
+      <ion-input type="text" formControlName="max_inscritos"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="formActividad.get('max_inscritos').errors && formActividad.get('max_inscritos').dirty">
+      <p *ngIf="formActividad.get('max_inscritos').hasError('required')">Es obligatorio poner un nombre</p>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formActividad.invalid">Añadir Actividad</button>
+  </form>
+  <ion-item-divider color="light"></ion-item-divider>
+  <!--BOTÓN DE CANCELAR LA ACCIÓN / VOLVER A PANTALLA ANTERIOR-->
+  <ion-row>
+    <button (click)="volver()" ion-button>CANCELAR</button>
+  </ion-row>
+  <ion-item-divider color="light"></ion-item-divider>
+  <!--BOTÓN DE CERRAR LA SESIÓN ACTIVA-->
+  <ion-row>
+    <button (click)="logout()" ion-button block>CERRAR SESIÓN</button>
+  </ion-row>
+</ion-content>
