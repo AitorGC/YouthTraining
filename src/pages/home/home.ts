@@ -42,13 +42,25 @@ export class HomePage {
                 if (error.code == 'auth/user-not-found') {
                     this.alertaNoUsuario();
                 }
+                if (error.code == 'auth/wrong-password') {
+                    this.alertaNoCoincide();
+                }
             });
         }
     }
 
+    alertaNoCoincide() {
+        let alert = this.alertCtrl.create({
+            title: '¡Correo / Contraseña inválidos!',
+            subTitle: 'El correo electrónico es inválido o la contraseña no coincide',
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
     alertaNoUsuario() {
         let alert = this.alertCtrl.create({
-            title: 'Usuario no registrado!',
+            title: '¡Usuario no registrado!',
             subTitle: 'El correo electrónico y la contraseña no figuran en la base de datos',
             buttons: ['OK']
         });
