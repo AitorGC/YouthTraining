@@ -34,7 +34,9 @@ export class SignupPage {
                 this.navCtrl.setRoot(DashboardPage);
             }, registerError => {
                 console.log(registerError);
-                if (registerError.code === 'auth/weak-password' || registerError.code === 'auth/email-already-in-use') {
+                if (registerError.code === 'auth/weak-password') {
+                    this.contrasenaDebil();
+                } else if (registerError.code === 'auth/email-already-in-use') {
                     this.usuarioNoRegistrado();
                 }
                 this.error = registerError;
@@ -51,10 +53,19 @@ export class SignupPage {
         alert.present();
     }
 
+    contrasenaDebil() {
+        let alert = this.alertCtrl.create({
+            title: '¡Mejore su contraseña!',
+            subTitle: 'La contraseña es demasiado débil. Inserte una contraseña de entre 6 y 20 caracteres.',
+            buttons: ['OK']
+        });
+        alert.present();
+    }
+
     usuarioNoRegistrado() {
         let alert = this.alertCtrl.create({
             title: '¡Usuario no registrado!',
-            subTitle: 'El correo electrónico ya figura en la base de datos',
+            subTitle: 'El usuario ya figura en la base de datos',
             buttons: ['OK']
         });
         alert.present();

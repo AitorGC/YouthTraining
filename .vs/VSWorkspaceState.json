@@ -1,12 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\app",
-    "\\src\\pages",
-    "\\src\\pages\\anadir-actividad",
-    "\\src\\pages\\dashboard"
+    "\\src"
   ],
-  "SelectedNode": "\\src\\pages\\anadir-actividad\\anadir-actividad.html",
+  "SelectedNode": "\\src\\pages",
   "PreviewInSolutionExplorer": false
 }

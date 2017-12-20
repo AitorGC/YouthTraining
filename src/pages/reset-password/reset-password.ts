@@ -23,7 +23,7 @@ export class ResetPasswordPage {
 
 
         submit(): void {
-            if(this.resetPasswordForm.valid) {
+            if (this.resetPasswordForm.valid) {
                 this.auth.resetPassword(this.email.value).subscribe(registerData => {
                     this.contrasenaEnviada();
                     this.navCtrl.setRoot(HomePage);
